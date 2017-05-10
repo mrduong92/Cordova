@@ -1,0 +1,3 @@
+# Mở đầu
+
+Trong bài viết này mình sẽ hướng dẫn các bạn tự tạo một Single Page Application (SPA) sử dụng AngularJS. Bài viết này hướng tới những bạn mới làm quen với AngularJS, những người đã biết đến, đã có những khái niệm cơ bản trong AngularJS như module, controller, service, directive, binding data, dependency injection, filter, v.v... nhưng lại chưa thể  tự mình kết hợp các khái niệm trên để tự tạo nên một SPA hoàn chỉnh. Vì vậy chi tiết bài viết sau đây sẽ không nhắc lại các khái niệm cơ bản trong AngularJS mà chỉ tập trung cách phối kết hợp các thành phần đó và các bước để tạo nên ứng dụng.

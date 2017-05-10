@@ -1,0 +1,81 @@
+<a href="#create"><button type="button" class="btn btn-block btn-success btn-lg">Thêm Thành viên</button></a>
+<div class="col-xs-12">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Danh sách thành viên</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div id="list-users" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table ng-controller="IndexController" id="list_categories" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th><button type="button" class="btn btn-primary" id="selectAll" value="0">Chọn Tất Cả</button></th>
+                                    <th>ID</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
+                                <tr ng-repeat="user in users" role="row" class="odd">
+                                        <td>
+                                            <input type="checkbox" name="massdel[]" value="{{user.id}}">
+                                        </td>
+                                        <td class="sorting_1">
+                                            <a href="#">{{user.id}}</a>
+                                        </td>
+                                        <td>
+                                            <a href="#">{{user.name}}</a>
+                                        </td>
+                                        <td>{{user.email}}</td>
+                                    </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th rowspan="1" colspan="1">
+                                        <form id="massDel" method="POST" action="" accept-charset="UTF-8" role="form">
+                                            <input type="hidden" name="ids" value=""/>
+                                            <div class="example-modal">
+                                                <div id="deleteModal" class="modal modal-danger">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">×</span></button>
+                                                                <h4 class="modal-title">Xác nhận</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Bạn có chắc sẽ xóa tất cả các mục này???…</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Bỏ qua</button>
+                                                                <button id="accept" type="button" class="btn btn-outline">Chấp nhận</button>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
+                                            </div>
+                                            <button type="button" id="deleteAll" class="btn btn-danger"><i class="fa fa-times"></i> Xóa Tất Cả</button>
+                                        </form>
+                                    </th>
+                                    <th rowspan="1" colspan="1">ID</th>
+                                    <th rowspan="1" colspan="1">Username</th>
+                                    <th rowspan="1" colspan="1">Email</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+</div>

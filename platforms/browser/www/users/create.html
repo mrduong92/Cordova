@@ -1,0 +1,92 @@
+<div ng-controller="CreateController" class="col-xs-12">
+    <div class="box box-warning">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm thành viên</h3>
+        </div>
+        <!-- /.box-header -->
+
+        <form ng-submit="submit()" id="add-user-form" method="POST" accept-charset="UTF-8" role="form">
+            <div class="box-body">
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Tên</label>
+                    <input type="text" name="name" class="form-control" placeholder="Tên thành viên ..." required="">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email" class="form-control" placeholder="Email ..." required="">
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <input type="password" name="password" class="form-control" placeholder="Mật khẩu ..." required="">
+                </div>
+                <div class="form-group">
+                    <label>Nhập lại Mật khẩu</label>
+                    <input type="password" name="re_password" class="form-control" placeholder="Nhập lại mật khẩu ..." required="">
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Thêm thành viên</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.box -->
+</div>
+<div id="add-user-success" class="modal modal-danger">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Thêm thành viên thành công</h4>
+            </div>
+            <div class="modal-body">
+                <p>ID: <span id="add-user-success-id"></span></p>
+                <p>Tên: <span id="add-user-success-name"></span></p>
+                <p>Email: <span id="add-user-success-email"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" type="button" class="btn btn-outline">Chấp nhận</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script type="text/javascript">
+    $('#add-user-form').on('submit', (function (e) {
+        e.preventDefault();
+//    var url = SERVER_URL + $(this).attr('action');
+        $.ajax({
+            method: "POST",
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            beforeSend: function (xhr) {
+
+            },
+            success: function (msg) {
+                if (msg.header.status == 200 || msg.header.status == 201) {
+                    $('#add-user-success').modal('show');
+                    $('#add-user-success').find('#add-user-success-id').html(msg.body.user_ID);
+                    $('#add-user-success').find('#add-user-success-name').html(msg.body.user_name);
+                    $('#add-user-success').find('#add-user-success-email').html(msg.body.user_email);
+                } else {
+                    alert('Có lỗi xảy ra');
+                }
+            },
+            error: function (request, status, error) {
+
+            }
+        });
+        return false;
+    }));
+
+    $('#add-user-success').on('hidden.bs.modal', function () {
+        $(".wrapper").html();
+        window.location.href="index.html";
+    });
+    
+    
+</script>

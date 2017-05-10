@@ -1,0 +1,16 @@
+<div ng-controller="CalController">
+    <form name="calculator">
+        <h2>{{data.title}}</h2>
+        <label>{{data.so_thu_nhat}}</label>
+        <input type="text" ng-model="so_thu_nhat" ng-pattern="/^[0-9]+$/" class="form-control" ng-keyup="show_result()">
+        <label>{{data.so_thu_hai}}</label>
+        <input type="text" ng-model="so_thu_hai" ng-pattern="/^[0-9]+$/" class="form-control" ng-keyup="show_result()">
+    </form>
+    <div class="result">
+        <h3>{{data.mess_result}}</h3>
+        <p>{{data.cong}}: {{result.cong}}</p>
+        <p>{{data.tru}}: {{result.tru}}</p>
+        <p>{{data.nhan}}: {{result.nhan}}</p>
+        <p>{{data.chia}}: {{result.chia}}</p>
+    </div>
+</div>
