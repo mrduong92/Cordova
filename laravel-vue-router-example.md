@@ -1,3 +1,5 @@
+# Laravel Vue Router Example 
+
 Bạn đang tìm kiếm ứng dụng tạo một trang bằng cách sử dụng vue js trong laraval thì bạn biết cách tạo bộ định tuyến trong vue. Nếu bạn biết về gói npm thì bạn cần cài đặt vue-router để tạo bộ định tuyến trong vue.
 
 Trong ví dụ này, tôi sẽ hiển thị để tạo bộ định tuyến vue giống như tuyến đường laravel mà chúng ta đang tạo. Chúng ta phải tạo bộ định tuyến vue với mẫu thành phần hoặc html. bây giờ chúng tôi sẽ tạo tuyến trang chủ và tuyến trang người dùng cho ví dụ cơ bản, để bạn có thể hiểu cách chúng tôi có thể thêm nhiều bộ định tuyến hơn trong ứng dụng vue laravel.
