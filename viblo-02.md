@@ -1,4 +1,4 @@
-# Laravel 5.7 Module Structure Application Example
+# Laravel 5.7 - Ví dụ về  ứng dụng cấu trúc Module 
 
 ## Giới thiệu
 
