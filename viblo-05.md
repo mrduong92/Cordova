@@ -205,3 +205,6 @@ Ok, cuối cùng tạo hai thư mục trong thư mục `public` của bạn là 
 Mình hy vọng bài viết này có thể giúp bạn áp dụng được vào dự án của mình!
 
 Xin chân thành cám ơn!
+
+# Nguồn
+https://itsolutionstuff.com/post/laravel-compress-image-before-upload-exampleexample.html
