@@ -2,9 +2,9 @@
 
 ## Giới thiệu
 
-Trong hướng dẫn này, tôi muốn chỉ cho bạn cách tạo chatbot đơn giản bằng botman trong ứng dụng laravel 5.8 hiện có của bạn. chúng tôi sẽ cài đặt botman với laravel và bạn có thể dễ dàng sử dụng trình điều khiển web, trình điều khiển facebook, trình điều khiển telegram, trình điều khiển chậm, trình điều khiển trò chuyện, v.v. chúng tôi sẽ sử dụng trình điều khiển web để tạo chatbot botman rất đơn giản trong ứng dụng laravel 5.
+Trong hướng dẫn này, tôi muốn chỉ cho bạn cách tạo chatbot đơn giản bằng botman trong ứng dụng Laravel 5.8. Chúng ta sẽ cài đặt botman với laravel và bạn có thể dễ dàng sử dụng tweb driver, facebook driver, telegram driver, slack driver, hip chat driver... Chúng ta sẽ sử dụng web driver để tạo chatbot botman rất đơn giản trong ứng dụng laravel 5.
 
-Chatbots là một phổ biến trong công nghệ ngày nay. mọi người đều muốn đưa chatbot vào trang web của mình vì chúng tôi có thể dễ dàng tích hợp câu hỏi faq và người dùng có thể đặt câu hỏi đơn giản liên quan đến trang web của chúng tôi.
+Chatbot là một phổ biến trong công nghệ ngày nay. mọi người đều muốn đưa chatbot vào trang web của mình vì chúng ta có thể dễ dàng tích hợp câu hỏi faq và người dùng có thể đặt câu hỏi đơn giản liên quan đến trang web của chúng ta.
 
 Có một số bot có sẵn trên thị trường. một số công ty có bot riêng. nhưng hầu như được trả tiền vì vậy tôi sẽ thích sử dụng botman là chatbot mã nguồn mở với laravel. bạn cũng có thể dễ dàng tích hợp với laravel.
 
@@ -22,7 +22,7 @@ composer create-project --prefer-dist laravel/laravel blog
 
 ## Step 2: Cài đặt Botman và Botman Driver
 
-Trong bước này, chúng tôi sẽ cài đặt gói trình soạn thảo botman và cũng cài đặt trình điều khiển web botman. Vì vậy, chúng ta cần chạy theo cả hai lệnh để cài đặt botman.
+Trong bước này, chúng ta sẽ cài đặt botman composer package và cũng cài đặt botman web driver. Vì vậy, chúng ta cần chạy theo cả hai lệnh để cài đặt botman.
 
 * Cài đặt Botman:
 
@@ -38,7 +38,7 @@ composer require botman/driver-web
 
 ## Step 3: Tạo file config
 
-Bước này không bắt buộc phải tuân theo. Nhưng bạn có thể tạo tập tin cấu hình cho trình điều khiển và bộ đệm. Vì vậy, hãy tạo tập tin bot trên thư mục cấu hình và viết mã như tôi đã đưa ra dưới đây:
+Bước này không bắt buộc phải tuân theo. Nhưng bạn có thể tạo tập tin cấu hình cho driver và cache. Vì vậy, hãy tạo tập tin bot trên thư mục `config` và code như dưới đây:
 
 * config/botman/config.php
 
@@ -68,7 +68,7 @@ return [
 
 ## Step 4: Tạo Routes
 
-Ở đây, chúng ta cần thêm các tuyến tạo cho yêu cầu botman. vì vậy hãy mở file `routes/web.php` của bạn và thêm route sau.
+Ở đây, chúng ta cần thêm các routes tạo cho yêu cầu botman. vì vậy hãy mở file `routes/web.php` của bạn và thêm route sau.
 
 * routes/web.php
 
@@ -134,7 +134,7 @@ class BotManController extends Controller
 
 # Step 6: Update Blade File
 
-Trong tệp này, chúng tôi cần cập nhật một số mã trên tệp chào mừng balde. chúng ta cần thêm widget botman trong tệp welcome.blade.php.
+Trong file này, chúng ta cần cập nhật một số mã trên file chào mừng balde. Chúng ta cần thêm widget botman trong file welcome.blade.php.
 
 * resources/views/welcome.blade.php
 
@@ -144,7 +144,7 @@ Trong tệp này, chúng tôi cần cập nhật một số mã trên tệp chà
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>How to install Botman Chatbot in Laravel 5? - ItSolutionStuff.com</title>
+        <title>How to install Botman Chatbot in Laravel 5?</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <style>
             html, body {
@@ -164,7 +164,7 @@ Trong tệp này, chúng tôi cần cập nhật một số mã trên tệp chà
     <script>
 	    var botmanWidget = {
 	        aboutText: 'ssdsd',
-	        introMessage: "✋ Hi! I'm form ItSolutionStuff.com"
+	        introMessage: "✋ Hi! I'm form Hanoi"
 	    };
     </script>
   
@@ -173,7 +173,7 @@ Trong tệp này, chúng tôi cần cập nhật một số mã trên tệp chà
 </html>
 ```
 
-Bây giờ chúng tôi đã sẵn sàng để chạy ví dụ chatbot của chúng tôi với laravel 5.8, vì vậy hãy chạy lệnh dưới đây để chạy nhanh:
+Bây giờ chúng ta đã sẵn sàng để chạy ví dụ chatbot của chúng ta với laravel 5.8, vì vậy hãy chạy lệnh dưới đây để chạy nhanh:
 
 ```sh
 php artisan serve
@@ -184,7 +184,7 @@ Bây giờ bạn có thể mở URL dưới đây trên trình duyệt của mì
 http://localhost:8000
 ```
 
-Chúng tôi cũng có thể sử dụng một số hướng dẫn từ đây: https://botman.io/2.0/welcome.
+Chúng ta cũng có thể sử dụng một số hướng dẫn tại đây: https://botman.io/2.0/welcome.
 
 Bạn có thể download từ git: https://github.com/savanihd/laravel-chatbot-botman
 
