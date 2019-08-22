@@ -136,3 +136,6 @@ Nhưng trên môi trường production bạn chỉ cần chạy `php artisan db:
 Nếu bạn cần chạy một số seed trong production, hãy đưa nó vào migration, xem Tip 3.
 
 Cám ơn các bạn đã đọc bài viết của tôi. Hy vọng bài viết này sẽ giúp các bạn có thể áp dụng được vào dự án của mình!
+
+# Nguồn
+https://laraveldaily.com/10-tips-about-data-seeding-in-laravel/
