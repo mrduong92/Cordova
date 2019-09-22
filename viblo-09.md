@@ -184,9 +184,9 @@ $posts = Post::with(‘approved_comments’)->get();
 ```
 
 ## Kịch bản 6. Tránh các điều kiện rất phức tạp với người truy cập
-Gần đây trong một dự án tôi đã có một nhiệm vụ: liệt kê các công việc, với biểu tượng phong bì cho các tin nhắn và với giá cho công việc nên được lấy từ tin nhắn LAST có chứa giá đó. Nghe có vẻ phức tạp, và nó là. Nhưng này, đời thực cũng khá phức tạp!
+Gần đây trong một dự án tôi đã có một nhiệm vụ: liệt kê các công việc, với biểu tượng phong bì cho các tin nhắn và với giá cho công việc nên được lấy từ tin nhắn cuối cùng có chứa giá đó. Nghe có vẻ phức tạp, và nó là. Nhưng đời cũng khá phức tạp!
 
-Trong mã đầu tiên tôi đã viết một cái gì đó như thế này:
+Trong đoạn code đầu tiên tôi đã viết một cái gì đó như thế này:
 ```php
 @foreach ($jobs as $job)
     ...
@@ -195,8 +195,8 @@ Trong mã đầu tiên tôi đã viết một cái gì đó như thế này:
     @endif
 @endforeach
 ```
-Ôi, kinh hoàng. Tất nhiên, bạn cần kiểm tra xem giá có tồn tại hay không, sau đó lấy tin nhắn cuối cùng với giá đó, nhưng vít Vít, nó không nên có trong Blade.
-Vì vậy, tôi đã kết thúc bằng cách sử dụng phương thức Accessor trên Eloquent và định nghĩa điều này trong app / Job.php:
+Ôi, kinh hoàng. Tất nhiên, bạn cần kiểm tra xem giá có tồn tại hay không, sau đó lấy tin nhắn cuối cùng với giá đó, nhưng nó không nên có trong Blade.
+Vì vậy, tôi đã kết thúc bằng cách sử dụng phương thức Accessor (https://laravel.com/docs/5.8/eloquent-mutators#defining-an-accessor) trên Eloquent và định nghĩa điều này trong `app/Job.php`:
 
 ```php
 public function getPriceAttribute()
@@ -213,8 +213,11 @@ public function getPriceAttribute()
 Tất nhiên, với những tình huống phức tạp như vậy, nó cũng dễ dàng nhảy vào vấn đề truy vấn N + 1 hoặc chỉ là khởi động các truy vấn nhiều lần một cách tình cờ. Vì vậy, vui lòng sử dụng Laravel Debugbar để tìm lỗ hổng.
 Ngoài ra, tôi có thể đề xuất một gói có tên là Laravel N + 1 Truy vấn truy vấn.
 
-Bonus. Tôi muốn để lại cho bạn ví dụ tồi tệ nhất về mã mà tôi đã thấy trên Laracasts, trong khi nghiên cứu chủ đề này. Ai đó muốn lời khuyên cho mã này dưới đây.
-Thật không may, mã như thế này được nhìn thấy trong các dự án trực tiếp quá thường xuyên. Bởi vì, tốt, nó hoạt động được (don cộng thử cái này ở nhà).
+----------------------------
+
+Bonus. Tôi muốn để lại cho bạn ví dụ tồi tệ nhất về code mà tôi đã thấy trên Laracasts, trong khi nghiên cứu chủ đề này.
+Các bạn hãy cho tôi lời khuyên về đoạn code dưới đây.
+Thật không may, code như thế này được nhìn thấy trong các dự án thực tế quá thường xuyên. Bởi vì, nó vẫn hoạt động được (ok, tốt thôi, nhưng đừng thử cách này ở nhà).
 
 ```html
 @foreach($user->payments()->get() as $payment)
