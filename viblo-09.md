@@ -238,3 +238,6 @@ Thật không may, code như thế này được nhìn thấy trong các dự á
 </tr>
 @foreach
 ```
+
+## Tham khảo
+https://laraveldaily.com/calling-eloquent-from-blade-6-tips-for-performance/
