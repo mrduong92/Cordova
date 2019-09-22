@@ -56,7 +56,7 @@ Vì vậy, đừng quên EagerLoading.
 
 Một kịch bản điển hình khác là bạn cần liệt kê tất cả các mục con trong vòng lặp của các bản ghi cha.
 
-```php
+```html
 @foreach ($posts as $post)
 <tr>
   <td>{{ $post->title }}</td>
@@ -94,7 +94,7 @@ public function index()
 ```
 Và sau đó trong file Blade, nó hiển thị như thế này:
 
-```php
+```html
 @foreach ($polls as $poll)
     <b>{{ $poll->question }}</b> 
     ({{ $poll->votes()->count() }})
